@@ -1,0 +1,50 @@
+{
+  /* Runtime information */
+  "general": {
+    "pidfile": "api.pid",
+    "logfile": "logs/api.log",
+    "secondary": false,
+    "salt": "",
+    "jwt_secret": ""
+  },
+
+  /* Coin config */
+  "coin": {
+    "coin_name": "Monero",
+    "coin_symbol": "XMR",
+    "coin_units": 1e12,
+    "coin_difficulty_target": 120,
+    "address_prefixes": [18, 19, 42],
+    "explorer_url": "https://moneroblocks.info"
+  },
+
+  /* Payout information */
+  /* NOTE: this does not actually control payouts, but should reflect values in the Python script */
+  "payouts": {
+    "payments_blocks_interval": 20,
+    "maturity_requirement": 60,
+    "min_payout": 50000000000,
+    "max_payout": 10000000000000,
+    "pool_fee": 3.5
+  },
+
+  /* Where to bind the http server */
+  "api": {
+    "hostname": "127.0.0.1",
+    "port": 8227
+  },
+
+  /* Market information */
+  "market": {
+    "crypto_compare_api_key": ""
+  },
+
+  /* Database connection information */
+  "postgres": {
+    "db_hostname": "127.0.0.1",
+    "db_port": "5432",
+    "db_name": "",
+    "db_username": "",
+    "db_password": ""
+  }
+}

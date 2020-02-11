@@ -59,7 +59,7 @@ export function getNetworkInfoDatabase() {
         height: block.height,
         hashrate: Math.round(100 * block.difficulty  / coin.coin_difficulty_target ) / 100,
         last_timestamp: time.db_time_to_walltime(block.time),
-        last_reward: block.reward_total
+        last_reward: block.reward
       }
     } else {
       throw new Error('Table network_blocks is empty')

@@ -52,10 +52,10 @@ INSERT INTO %s
   SELECT
   uid,
   rid,
-  SUM(CASE WHEN row_number = 1 THEN 0 ELSE count END),
+  COALESCE(SUM(CASE WHEN row_number = 1 THEN 0 ELSE count END), 0),
   t,
-  MIN(time),
-  MAX(time)
+  COALESCE(MIN(time), ($1)::INT),
+  COALESCE(MAX(time), ($1)::INT)
   FROM generate_series(($1)::INT, ($2)::INT, ($3)::INT) AS t
   LEFT JOIN LATERAL (
     SELECT
@@ -89,10 +89,10 @@ INSERT INTO %s
   SELECT
   -1 AS uid,
   0 AS rid,
-  SUM(CASE WHEN row_number = 1 THEN 0 ELSE count END),
+  COALESCE(SUM(CASE WHEN row_number = 1 THEN 0 ELSE count END), 0),
   t,
-  MIN(time),
-  MAX(time)
+  COALESCE(MIN(time), ($1)::INT),
+  COALESCE(MAX(time), ($1)::INT)
   FROM generate_series(($1)::INT, ($2)::INT, ($3)::INT) AS t
   LEFT JOIN LATERAL (
     SELECT

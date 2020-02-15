@@ -76,5 +76,5 @@ export function generateSalt() {
 }
 
 export function generateUserHash(username, salt) {
-  return keccak('keccak256').update(username + salt).digest().toString('hex').substring(0, 16)
+  return keccak('keccak256').update(username + salt).digest().toString('hex').substring(0, 12)
 }

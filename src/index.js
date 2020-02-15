@@ -103,5 +103,6 @@ async function loop() {
     logger.log('info', 'core', 'API initializated')
   } catch(error) {
     logger.log('error', 'core', 'Initialization error: %s', [error])
+    exit_gracefully()
   }
 })()
